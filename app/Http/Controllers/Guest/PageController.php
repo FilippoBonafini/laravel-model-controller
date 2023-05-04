@@ -17,11 +17,11 @@ class PageController extends Controller
         return view('home', compact('movie_list'));
     }
 
-    public function show($id)
+    public function show($id, $title)
     {
         $movie_list = Movie::all();
-        $movie = Movie::findOrFail($id);
+        $movie = Movie::where('id', $id)->where('title', $title)->firstOrFail();
 
-        return view('detail', compact('movie'), compact('movie_list'));
+        return view('detail', compact('movie', 'movie_list'));
     }
 }
