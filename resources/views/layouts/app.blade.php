@@ -10,7 +10,7 @@
 <body>
     @include('partials.header')
     <main class="container row">
-        <div class="col-5">
+        <div class="col-4">
             @include('partials.list')
         </div>
         <div class="col">
