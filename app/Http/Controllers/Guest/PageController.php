@@ -20,8 +20,8 @@ class PageController extends Controller
     public function show($id, $title)
     {
         $movie_list = Movie::all();
-        $movie = Movie::where('id', $id)->where('title', $title)->firstOrFail();
+        $movie = Movie::findOrFail($id);
 
-        return view('detail', compact('movie', 'movie_list'));
+        return view('detail', compact('movie'), compact('movie_list'));
     }
 }
