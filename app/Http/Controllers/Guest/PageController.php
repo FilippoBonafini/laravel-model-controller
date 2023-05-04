@@ -12,15 +12,16 @@ class PageController extends Controller
 {
     public function index()
     {
-        $movie = Movie::all();
+        $movie_list = Movie::all();
 
-        return view('home', compact('movie'));
+        return view('home', compact('movie_list'));
     }
 
     public function show($id)
     {
+        $movie_list = Movie::all();
         $movie = Movie::findOrFail($id);
 
-        return view('detail', compact('movie'));
+        return view('detail', compact('movie'), compact('movie_list'));
     }
 }
